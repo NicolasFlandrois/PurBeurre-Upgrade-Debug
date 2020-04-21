@@ -1,7 +1,7 @@
 # Pur Beurre - Upgrade & Debug
 OC - Project 11 - Web Plateform P8 Fork (Debug, Upgrade, Customers Relationship Management)
 
-![](https://img.shields.io/badge/Python-%3E%3D3.7-yellow.svg)  ![](https://img.shields.io/badge/Django-2.2.8-brightgreen.svg) ![](https://img.shields.io/badge/local%20database-MySQL-blue.svg)
+![](https://img.shields.io/badge/Python-%3E%3D3.7-yellow.svg)  ![](https://img.shields.io/badge/Django-%3E%3D2.2.10-brightgreen.svg) ![](https://img.shields.io/badge/local%20database-MySQL-blue.svg)
 
 -----------------------
 
