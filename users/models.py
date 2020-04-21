@@ -7,6 +7,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     image = models.ImageField(default='profile_default.jpg',
                               upload_to='profile_pics')
+    newsletter = models.BooleanField(null=False, default=False)
 
     # Add here more field (added on top of User's model)
     # to appear in profile e.g. Bio, City, langage, etc
