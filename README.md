@@ -17,8 +17,9 @@ This project is a fork of "Pur Beurre" project (P08).
 
 This project is a post development simulation. The exemple case is as follow:
 
-    - The client's team wanted to make some changes directly in production. Those changes triggered some Bugs, and all unitests failed.
-    - The client wants to add a few new features.
+- The client's team wanted to make some changes directly in production. Those changes triggered some Bugs, and all unitests failed.
+
+- The client wants to add a few new features.
 
 This senario takes into account the abilities to manage customer relationship, the ability to repair bugs, and to create new features to a project (our own or someone elses).
 
