@@ -1,0 +1,121 @@
+{% extends "home/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <style type="text/css">
+        .bgimg {
+            background-image: url({{ details.image.url }});
+            background-color: #000000;
+            background-repeat: repeat;
+            background-position: center;
+            background-size: contain;
+        }
+
+        .well {
+           background-color: rgba(245, 245, 245, 0.4);
+        }
+    </style>
+
+    <!-- Do not remove - Ensure dialogue not hidden by Header's Navbar -->
+    <p class="col d-flex invisible" style="margin-bottom: 70px"> This Paragraph ensure the bottom of the conversation isn't hidden by the Footer.</p>
+    <!-- Do not remove - Ensure dialogue not hidden by Header's Navbar -->
+
+    <div class="container-fluid bgimg w-100 h-50">
+      <div class="row h-20 justify-content-center">
+        <h1 class="well font-weight-bold text-center text-dark-70 m-4">{{ details.name|title }}</h1>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-around  m-3">
+        <!-- Left col Logo Nutri-score -->
+        <div class="col-3">
+        {% if details.nutriscore == 'a' %}
+            <img class="img-fluid" src="{% static 'home/img/nutriscore-a.svg' %}" alt="Nutriscore A">
+        {% elif details.nutriscore == 'b' %}
+            <img class="img-fluid" src="{% static 'home/img/nutriscore-b.svg' %}" alt="Nutriscore B">
+        {% elif details.nutriscore == 'c' %}
+            <img class="img-fluid" src="{% static 'home/img/nutriscore-c.svg' %}" alt="Nutriscore C">
+        {% elif details.nutriscore == 'd' %}
+            <img class="img-fluid" src="{% static 'home/img/nutriscore-d.svg' %}" alt="Nutriscore D">
+        {% elif details.nutriscore == 'e' %}
+            <img class="img-fluid" src="{% static 'home/img/nutriscore-e.svg' %}" alt="Nutriscore E">
+        {% else %}
+            <img class="img-fluid" src="{% static 'home/img/nutriscore-u.png' %}" alt="Nutriscore Non Connue">
+        {% endif %}
+        </div>
+
+        <!-- Right colInfo from OFF API > 'repères nutritionels' -->
+        <table>
+            <tr>
+                <th>Repères nutritionels pour 100g</th>
+            </tr>
+            <tr>
+                <td>Energie</td>
+                {% if nutriments.energy_100g %}
+                    <td>{{ nutriments.energy_100g }}</td>
+                    <td>{{ nutriments.energy_unit }}</td>
+                {% else %}
+                    <td>Non disponible</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Matière Grasse</td>
+                {% if nutriments.fat_100g %}
+                    <td> {{ nutriments.fat_100g }} </td>
+                    <td>{% if nutriments.fat_unit %} {{ nutriments.fat_unit }} {% else %} g {% endif %}</td>
+                {% else %}
+                    <td> Non disponible </td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Sucre</td>
+                {% if nutriments.sugars_100g %}
+                    <td>{{ nutriments.sugars_100g }}</td>
+                    <td>{% if nutriments.sugars_unit %} {{ nutriments.sugars_unit }} {% else %} g {% endif %}</td>
+                {% else %}
+                    <td>Non disponible</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Fibres</td>
+                {% if nutriments.fiber_100g %}
+                    <td>{{ nutriments.fiber_100g }}</td>
+                    <td>{% if nutriments.fiber_unit %} {{ nutriments.fiber_unit }} {% else %} g {% endif %}</td>
+                {% else %}
+                    <td>Non disponible</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Protéines</td>
+                {% if nutriments.proteins_100g %}
+                    <td>{{ nutriments.proteins_100g }}</td>
+                    <td>{% if nutriments.proteins_unit %} {{ nutriments.proteins_unit }} {% else %} g {% endif %}</td>
+                {% else %}
+                    <td>Non disponible</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td>Sel</td>
+                {% if nutriments.salt_100g %}
+                    <td>{{ nutriments.salt_100g }}</td>
+                    <td>{% if nutriments.salt_unit %} {{ nutriments.salt_unit }} {% else %} g {% endif %}</td>
+                {% else %}
+                    <td>Non disponible</td>
+                {% endif %}
+            </tr>
+        </table>
+
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <!-- Button centered > 'Voir la fiche open food fact' with link API EAN -->
+        <a href="https://fr.openfoodfacts.org/produit/{{ details.ean }}" target="_blank" class="btn btn-primary m-1" title="Lien vers OpenFoodFacts: {{ details.name|title }}" alt="Lien vers OpenFoodFacts: {{ details.name|title }}">Voir la fiche d'OpenFoodFacts</a>
+    </div>
+
+    <!-- Do not remove - Ensure dialogue not hidden by Header's Navbar -->
+    <p class="col d-flex invisible" style="margin-bottom: 75px"> This Paragraph ensure the bottom of the conversation isn't hidden by the Footer.</p>
+    <!-- Do not remove - Ensure dialogue not hidden by Header's Navbar -->
+
+{% endblock content %}
