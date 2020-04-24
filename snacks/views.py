@@ -6,6 +6,7 @@ from django.shortcuts import redirect
 from django.views import View
 from .models import Product, Favourite
 from .nutriment import nutriments
+from analytics.mixins import ObjectViewedMixin
 
 
 def allListView(request):
@@ -41,7 +42,7 @@ class SearchListView(ListView):
         return Product.objects.filter(category=cat).order_by('nutriscore')
 
 
-class ProductDetailView(DetailView):
+class ProductDetailView(ObjectViewedMixin, DetailView):
     model = Product
     template_name = 'snacks/details.html'
     context_object_name = 'details'

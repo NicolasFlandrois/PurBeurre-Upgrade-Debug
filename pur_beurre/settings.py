@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'snacks.apps.SnacksConfig',
     'users.apps.UsersConfig',
     'home.apps.HomeConfig',
+    'analytics.apps.AnalyticsConfig',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
