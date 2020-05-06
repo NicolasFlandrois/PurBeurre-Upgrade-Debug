@@ -123,11 +123,8 @@ class FavDeleteView(LoginRequiredMixin, UserPassesTestMixin, View):
                 user=auth.get_user(request),
                 product=prod)
             fav_del.delete()
-            # return HttpResponseRedirect('/snacks/favourites')
         except:
             pass
-            # except Favourite.DoesNotExist:
-            #     fav_del = None
         return HttpResponseRedirect('/snacks/favourites')
 
         # ISSUE: When arbitrary want to delete a fav that does not exists in DB.fav_tbl, ERROR page.. But I want it to redirect user to Fav page instead
