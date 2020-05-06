@@ -7,15 +7,11 @@ class Command(BaseCommand):
     help = """This function will update the products' database, from db.json
     file."""
 
-    # def add_arguments(self, parser):
-    #     parser.add_argument('db_file', nargs='+', type=str)
-
     def handle(self, *args, **options):
         """
         This function will update the products' database, from db.json file.
         """
         try:
-            # print("We are checking informations from: ", options['db_file'])
             print(
                 "We are checking informations from the new databases settings\
  in db.json")
