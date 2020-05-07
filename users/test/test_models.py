@@ -1,7 +1,6 @@
 from django.test import TestCase, Client
 from django.contrib.auth.models import User
 from django.contrib.auth.hashers import check_password
-from users.models import Profile
 
 
 class TestModels(TestCase):
@@ -17,8 +16,9 @@ class TestModels(TestCase):
 
     def test_Profile(self):
         """Testing the Profile class' object"""
+        client = Client()
+        client.login(username='testuser', password='12345')
         self.assertEquals(self.user_1.username, 'testuser')
-        self.assertEquals(self.user_1.password,
-                          'pbkdf2_sha256$180000$69zRzYujKH2b$+cIBo9b+p81+CMSt/YCm2qCBB5aEtbf7nbaSUFZUCWE=')
+        self.assertTrue(check_password('12345', self.user_1.password))
         self.assertEquals(self.user_1.email,
                           'boggusmail@boggusmail.net')
