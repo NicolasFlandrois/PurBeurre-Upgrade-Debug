@@ -43,5 +43,5 @@ class TestModels(TestCase):
         self.assertEquals(self.objectviewed1.timestamp,
                           datetime.fromisoformat('2011-11-04 00:05:23.283+00:00'))
 
-    def test_object_viewed_receiver(self):
-        """Testing the ObjectViewed class' object"""
+    # def test_object_viewed_receiver(self):
+    #     """Testing the ObjectViewed class' object"""
